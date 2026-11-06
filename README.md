@@ -1,6 +1,6 @@
 # kevinyang.app
 
-Personal site for Kevin Yang. Plain HTML and CSS with no build step.
+Personal site for Kevin Yang. Plain HTML, CSS, and a little JavaScript, with no build step.
 
 ## Run locally
 

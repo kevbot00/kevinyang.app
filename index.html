@@ -10,12 +10,15 @@
   <meta property="og:title" content="Kevin Yang · Software Engineer">
   <meta property="og:description" content="Full-stack software engineer working in TypeScript, React, React Native, Node.js, and GraphQL.">
   <meta property="og:url" content="https://kevinyang.app/">
-  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
-  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <meta name="theme-color" content="#f8f5ef" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121419" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <script>
+    try { var t = localStorage.getItem('theme'); if (t === 'light' || t === 'dark') document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
@@ -23,121 +26,206 @@
 
   <header class="top">
     <div class="wrap top-inner">
-      <a class="mark" href="/" aria-label="Kevin Yang, home">KY</a>
+      <a class="mark" href="/" aria-label="Kevin Yang, home"><span>KY</span><span class="mark-full">Kevin Yang</span></a>
       <nav aria-label="Sections">
-        <a href="#work">Work</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
+        <a href="#work"><span class="nav-i">01</span>Work</a>
+        <a href="#experience"><span class="nav-i">02</span>Experience</a>
+        <a href="#contact"><span class="nav-i">03</span>Contact</a>
       </nav>
+      <button class="theme" type="button" aria-label="Dark theme" aria-pressed="false">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.5"/><path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"/></svg>
+      </button>
     </div>
   </header>
 
   <main id="main">
-    <section class="hero wrap">
-      <p class="status"><span class="dot" aria-hidden="true"></span>Open to new roles</p>
-      <h1>Kevin Yang</h1>
-      <p class="lede">
-        Full-stack software engineer with 6+ years in TypeScript, React, React Native, Node.js, and GraphQL.
-        I spent five years at OTTO Sport AI owning the league scheduling engine, and I'm now building iOS apps in React Native.
-      </p>
-      <ul class="links" aria-label="Profiles">
-        <li><a href="mailto:k.yang.m909@gmail.com">Email</a></li>
-        <li><a href="https://github.com/kevbot00" rel="me">GitHub</a></li>
-        <li><a href="https://www.linkedin.com/in/kevinyang123" rel="me">LinkedIn</a></li>
-      </ul>
+    <section class="hero wrap" aria-labelledby="hero-h">
+      <div class="hero-copy">
+        <p class="status"><span class="dot" aria-hidden="true"></span>Open to new roles<span class="sep" aria-hidden="true">/</span><span class="sr">, </span>Honolulu or remote</p>
+        <h1 id="hero-h">Kevin Yang</h1>
+        <p class="role">Full-stack software engineer who builds <em>systems that hold up</em> under real schedules.</p>
+        <p class="lede">
+          6+ years in TypeScript, React, React Native, Node.js, and GraphQL.
+          I spent five years at OTTO Sport AI owning the league scheduling engine, and since March 2026 I've been building two iOS apps in React Native.
+        </p>
+        <ul class="links" aria-label="Profiles">
+          <li><a class="btn btn-solid" href="mailto:k.yang.m909@gmail.com">Email me</a></li>
+          <li><a class="btn" href="https://github.com/kevbot00" rel="me">GitHub <span aria-hidden="true">↗</span></a></li>
+          <li><a class="btn" href="https://www.linkedin.com/in/kevinyang123" rel="me">LinkedIn <span aria-hidden="true">↗</span></a></li>
+        </ul>
+      </div>
+
+      <figure class="fixture" aria-hidden="true">
+        <div class="widget">
+          <div class="w-top">
+            <span class="w-league"><span class="w-logo"></span>Spring League · U12</span>
+            <span class="w-embed">&lt;embed/&gt;</span>
+          </div>
+
+          <div class="w-label"><span>Schedule</span><span>Sat, Apr 12</span></div>
+          <ul class="w-games">
+            <li style="--i:0"><span class="w-time">9:00<small>Field 1</small></span><span class="w-team home" data-t="hawks">Hawks</span><span class="w-score">3–1</span><span class="w-team" data-t="tigers">Tigers</span><span class="w-status">Final</span></li>
+            <li style="--i:1"><span class="w-time">9:00<small>Field 2</small></span><span class="w-team home" data-t="comets">Comets</span><span class="w-score">2–2</span><span class="w-team" data-t="owls">Owls</span><span class="w-status">Final</span></li>
+            <li style="--i:2"><span class="w-time">10:30<small>Field 1</small></span><span class="w-team home" data-t="rockets">Rockets</span><span class="w-score">1–0</span><span class="w-team" data-t="sharks">Sharks</span><span class="w-status live"><b></b>Live</span></li>
+            <li style="--i:3"><span class="w-time">1:00<small>Field 3</small></span><span class="w-team home" data-t="hawks">Hawks</span><span class="w-score muted">vs</span><span class="w-team" data-t="comets">Comets</span><span class="w-status">Next</span></li>
+          </ul>
+
+          <div class="w-label"><span>Standings</span><span>W · L · T · Pts</span></div>
+          <table class="w-table">
+            <tbody>
+              <tr data-t="hawks"   style="--i:4"><td>1</td><td>Hawks</td><td>4</td><td>0</td><td>1</td><td>13</td></tr>
+              <tr data-t="comets"  style="--i:5"><td>2</td><td>Comets</td><td>3</td><td>1</td><td>1</td><td>10</td></tr>
+              <tr data-t="rockets" style="--i:6"><td>3</td><td>Rockets</td><td>3</td><td>2</td><td>0</td><td>9</td></tr>
+              <tr data-t="owls"    style="--i:7"><td>4</td><td>Owls</td><td>2</td><td>2</td><td>1</td><td>7</td></tr>
+              <tr data-t="tigers"  style="--i:8"><td>5</td><td>Tigers</td><td>1</td><td>3</td><td>1</td><td>4</td></tr>
+              <tr data-t="sharks"  style="--i:9"><td>6</td><td>Sharks</td><td>0</td><td>5</td><td>0</td><td>0</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <figcaption><span>Fig. 1</span> A stylized take on the schedule and standings data my OTTO widgets displayed, not the production design. Hover or tap a team to trace it.</figcaption>
+      </figure>
+    </section>
+
+    <section class="wrap metrics" aria-label="Results at OTTO Sport AI">
+      <dl>
+        <div class="metric">
+          <dt>Faster schedule generation</dt>
+          <dd class="fig"><span aria-hidden="true"><span class="n" style="--from:1;--to:6"></span>×</span><span class="sr">6 times</span></dd>
+          <dd class="ctx">30+ seconds down to about 5 on 1,000+ game stress tests</dd>
+        </div>
+        <div class="metric">
+          <dt>Less manual scheduling</dt>
+          <dd class="fig"><span aria-hidden="true"><span class="n" style="--from:0;--to:75"></span>%</span><span class="sr">Up to 75 percent</span></dd>
+          <dd class="ctx">Up to 75% less time creating league schedules by hand</dd>
+        </div>
+        <div class="metric">
+          <dt>Automated test coverage</dt>
+          <dd class="fig"><span aria-hidden="true"><span class="n" style="--from:20;--to:80"></span>%</span><span class="sr">About 80 percent</span></dd>
+          <dd class="ctx">Up from under 20%, with reusable test factories and helpers run in CI</dd>
+        </div>
+      </dl>
     </section>
 
     <section id="work" class="wrap section" aria-labelledby="work-h">
-      <h2 id="work-h" class="eyebrow">Selected work</h2>
+      <header class="section-head">
+        <span class="idx">01</span>
+        <h2 id="work-h">Selected <em>work</em></h2>
+      </header>
 
-      <article class="feature">
-        <div class="feature-head">
-          <p class="kicker">OTTO Sport AI · 2021 to 2026</p>
+      <article class="case">
+        <div class="case-head">
+          <p class="kicker">OTTO Sport AI · 2021 – 2026 · Technical owner</p>
           <h3>League scheduling engine</h3>
           <p>
-            Technical owner of the engine that builds season schedules for youth sports leagues, running on a platform of 50+ independently deployed microservices.
-            I led its architecture and coordinated 2 to 3 engineers on matchup generation.
+            The engine that builds season schedules for youth sports leagues, running on a platform of 50+ independently deployed microservices.
+            I led its architecture and coordinated 2 to 3 engineers on matchup generation, cutting manual schedule creation time by up to 75%.
           </p>
         </div>
+        <ol class="steps">
+          <li><span class="step-k">Constraints</span><p>Built the conflict engine that fits games into open slots using per-grouping rules for games per team, dates, time windows, locations, game length, and coach conflicts.</p></li>
+          <li><span class="step-k">Speed</span><p>Rebuilt conflict checks on 5 minute slots, taking generation from 30+ seconds to about 5 on 1,000+ game stress tests.</p></li>
+          <li><span class="step-k">Extensibility</span><p>Designed matchup generation around the Strategy pattern so new league formats needed no scheduler changes.</p></li>
+          <li><span class="step-k">Migration</span><p>Rebuilt legacy V1 scheduling features in V3, helping move the last 3 large clients off V1.</p></li>
+        </ol>
+      </article>
 
-        <dl class="stats">
-          <div><dt>Manual scheduling time</dt><dd>Up to 75% less</dd></div>
-          <div><dt>Generation, 1,000+ games</dt><dd>30s to about 5s</dd></div>
-          <div><dt>Test coverage</dt><dd>Under 20% to about 80%</dd></div>
-        </dl>
+      <article class="case">
+        <div class="case-head">
+          <p class="kicker">OTTO Sport AI · Technical owner · See Fig. 1</p>
+          <h3>Embeddable schedule and standings widgets</h3>
+          <p>
+            The schedules and standings that organizations embed on their own websites.
+            I owned the widgets alongside the scheduling engine.
+          </p>
+        </div>
+        <ol class="steps">
+          <li><span class="step-k">Embeds</span><p>Created embeddable HTML and CSS widgets for schedules and standings.</p></li>
+          <li><span class="step-k">CMS</span><p>Extended the existing Ruby CMS so organizations could add the widgets to their own sites.</p></li>
+          <li><span class="step-k">Contracts</span><p>Kept API contracts and migrations backward compatible across independently deployed services.</p></li>
+        </ol>
+      </article>
 
-        <ul class="notes">
-          <li>Built the conflict engine that fits games into open slots using per-grouping rules for games per team, dates, time windows, locations, game length, and coach conflicts.</li>
-          <li>Rebuilt conflict checks on 5 minute slots, which is where the speedup came from.</li>
-          <li>Designed matchup generation around the Strategy pattern so new league formats needed no scheduler changes.</li>
-          <li>Rebuilt legacy V1 scheduling features in V3, helping move the last 3 large clients off V1.</li>
+      <h3 class="sub-label">Apps and projects</h3>
+      <article class="app">
+        <div class="app-copy">
+          <p class="kicker">iOS · 2026</p>
+          <h4>Imposter <span class="pill">In App Store review</span></h4>
+          <p>A pass-the-phone party game for 3 to 12 players. Everyone gets the same secret word except the imposters, who have to bluff. Built with animated reveals, a lifetime in-app purchase, and ads. Before submitting, I wrote 100+ Jest tests and ran two release QA audits covering purchases, restores, and edge cases.</p>
+          <p class="row-tags">React Native · TypeScript · Reanimated · Jest · AsyncStorage</p>        </div>
+        <ul class="shots" aria-label="Imposter screenshots">
+          <li><img src="/img/imposter-1.webp" width="480" height="1044" loading="lazy" decoding="async" alt="Title screen asking who's the imposter, billed as the party bluffing game."></li>
+          <li><img src="/img/imposter-2.webp" width="480" height="1044" loading="lazy" decoding="async" alt="Each player swipes up to peek at the secret word, then passes the phone."></li>
+          <li><img src="/img/imposter-3.webp" width="480" height="1044" loading="lazy" decoding="async" alt="The imposter's reveal screen, telling them to blend in and not get caught."></li>
+          <li><img src="/img/imposter-4.webp" width="480" height="1044" loading="lazy" decoding="async" alt="Voting screen where players pick who they think the imposter is."></li>
         </ul>
       </article>
 
-      <div class="grid">
-        <article class="card">
-          <p class="kicker">iOS app · 2026</p>
-          <h3>Recipe Book</h3>
-          <p>Turns cooking videos into recipes with Gemini, then keeps them in a library with meal plans and shopping lists. Includes Sign in with Apple and subscriptions. In final QA ahead of App Store release.</p>
-          <p class="tags">React Native · Expo · NestJS · MongoDB · Gemini API</p>
-        </article>
-
-        <article class="card">
-          <p class="kicker">Full-stack · 2026</p>
-          <h3><a href="https://github.com/kevbot00/kanban">Kanban board</a></h3>
-          <p>A Trello style board with drag and drop within and across columns, built as a TypeScript monorepo with a NestJS API and Playwright end-to-end tests.</p>
-          <p class="tags">React 19 · Vite · Tailwind · dnd-kit · TanStack Query · NestJS · Prisma · PostgreSQL</p>
-        </article>
-
-        <article class="card">
-          <p class="kicker">Test automation · 2026</p>
-          <h3><a href="https://github.com/kevbot00/toolshop-qa">Toolshop QA</a></h3>
-          <p>85 UI, API, and accessibility tests for an open source e-commerce app. Every push starts a clean copy of the app in Docker, seeds it, and runs the suites in GitHub Actions.</p>
-          <p class="tags">Playwright · TypeScript · Pytest · Zod · axe-core · Docker</p>
-        </article>
-      </div>
+      <ul class="rows projects">
+        <li class="row">
+          <span class="row-when">2026</span>
+          <div class="row-main">
+            <h4>Recipe Book <span class="pill">iOS · final QA</span></h4>
+            <p>Turns cooking videos into recipes with Gemini, then keeps them in a library with meal plans and shopping lists. Includes Sign in with Apple and subscriptions. In final QA ahead of App Store release.</p>
+          </div>
+          <p class="row-tags">React Native · Expo · NestJS · MongoDB · Gemini API</p>
+        </li>
+        <li class="row">
+          <span class="row-when">2026</span>
+          <div class="row-main">
+            <h4><a class="stretch" href="https://github.com/kevbot00/kanban">Kanban board <span class="arrow" aria-hidden="true">↗</span></a></h4>
+            <p>A Trello style board with drag and drop within and across columns, built as a TypeScript monorepo with a NestJS API and Playwright end-to-end tests run in GitHub Actions.</p>
+          </div>
+          <p class="row-tags">React 19 · Vite · Tailwind · dnd-kit · TanStack Query · NestJS · Prisma · PostgreSQL</p>
+        </li>
+      </ul>
     </section>
 
     <section id="experience" class="wrap section" aria-labelledby="exp-h">
-      <h2 id="exp-h" class="eyebrow">Experience</h2>
+      <header class="section-head">
+        <span class="idx">02</span>
+        <h2 id="exp-h"><em>Experience</em></h2>
+      </header>
 
-      <ol class="timeline">
-        <li>
-          <div class="when">2021 to 2026</div>
-          <div>
-            <h3>Software Engineer, OTTO Sport AI</h3>
-            <p class="sub">Formerly Demosphere</p>
+      <ol class="rows timeline">
+        <li class="row">
+          <span class="row-when">2021 – 2026</span>
+          <div class="row-main">
+            <h3>Software Engineer <span class="at">@ OTTO Sport AI</span></h3>
+            <p class="row-sub">Formerly Demosphere · Scheduling engine and widgets covered in <a href="#work">Selected work</a></p>
             <ul>
-              <li>Owned the league scheduling engine and embeddable schedule and standings widgets, keeping API contracts and migrations backward compatible across services.</li>
+              <li>Built new Next.js UI for the OTTO platform as it branched off the Demosphere web app.</li>
               <li>Built live game tracking in React Native with PubNub and MongoDB, syncing scores and timers across devices.</li>
-              <li>Extended the Ruby CMS so organizations could embed widgets on their own sites.</li>
-              <li>Led production deployments and rollbacks, and handled on-call triage of 5 to 10 issues a week.</li>
+              <li>Tested React Native builds on real iOS and Android devices through SauceLabs before each release.</li>
+              <li>Raised automated test coverage from under 20% to about 80% with reusable test factories, database helpers, and auth test utilities run in CI.</li>
+              <li>Took part in architecture discussions on service boundaries and reducing coupling between services.</li>
+              <li>Led production deployments and rollbacks, and triaged 5 to 10 issues a week on a 6-person on-call rotation using CloudWatch logs, Grafana metrics, and Firebase crash trends, then ran root cause analysis across service boundaries.</li>
             </ul>
           </div>
         </li>
-        <li>
-          <div class="when">2020 to 2021</div>
-          <div>
-            <h3>Software Engineer, DCS Business</h3>
+        <li class="row">
+          <span class="row-when">2020 – 2021</span>
+          <div class="row-main">
+            <h3>Software Engineer <span class="at">@ DCS Business</span></h3>
             <ul>
-              <li>Built full-stack IoT monitoring with live and historical sensor views across every location a business had, using MQTT, Socket.io, and MySQL.</li>
-              <li>Added email alerts through AWS SNS and Nodemailer with configurable thresholds, event counts, and time windows.</li>
+              <li>Built full-stack IoT monitoring on a 3 to 4 person team, giving businesses live and historical sensor views across all their locations through MQTT, Socket.io, and MySQL.</li>
+              <li>Added AWS SNS and Nodemailer email alerts with configurable thresholds, event counts, and time windows, so businesses were notified automatically instead of watching dashboards.</li>
             </ul>
           </div>
         </li>
-        <li>
-          <div class="when">2019 to 2020</div>
-          <div>
-            <h3>QA Engineer, Hive Media Group</h3>
+        <li class="row">
+          <span class="row-when">2019 – 2020</span>
+          <div class="row-main">
+            <h3>QA Engineer <span class="at">@ Hive Media Group</span></h3>
             <ul>
-              <li>Smoke tested every UI change across about 25 publishing sites and automated parts of it with Selenium.</li>
+              <li>Smoke tested every UI change across about 25 publishing sites, catching regressions missed on the site being changed.</li>
+              <li>Reproduced bugs, verified fixes, and tested A/B experiments and regressions, with Selenium for some automation.</li>
             </ul>
           </div>
         </li>
-        <li>
-          <div class="when">2017 to 2019</div>
-          <div>
-            <h3>Accounts Receivable, FirstService Residential</h3>
+        <li class="row">
+          <span class="row-when">2017 – 2019</span>
+          <div class="row-main">
+            <h3>Accounts Receivable Representative <span class="at">@ FirstService Residential</span></h3>
             <ul>
               <li>Handled delinquency actions on homeowner accounts across 40+ HOA communities before moving into software.</li>
             </ul>
@@ -147,36 +235,66 @@
 
       <div class="skills">
         <div>
-          <h3 class="eyebrow">Stack</h3>
+          <h3 class="label">Stack</h3>
           <p>TypeScript, JavaScript, SQL, Ruby, React, React Native, Next.js, Node.js, NestJS, GraphQL, REST</p>
         </div>
         <div>
-          <h3 class="eyebrow">Data and cloud</h3>
+          <h3 class="label">Data and cloud</h3>
           <p>MongoDB, PostgreSQL, MySQL, Redis, Prisma, AWS (S3, SNS, CloudWatch), Grafana, Firebase</p>
         </div>
         <div>
-          <h3 class="eyebrow">Tooling</h3>
+          <h3 class="label">Tooling</h3>
           <p>Git, GitHub Actions, Docker, Jest, Mocha, Playwright, Selenium, Claude Code, GitHub Copilot, ChatGPT</p>
         </div>
         <div>
-          <h3 class="eyebrow">Education</h3>
+          <h3 class="label">Education</h3>
           <p>LearningFuze, Software Engineering Immersive, 2019<br>UC Riverside, BS Business Administration, 2016</p>
         </div>
       </div>
     </section>
 
     <section id="contact" class="wrap section contact" aria-labelledby="contact-h">
-      <h2 id="contact-h">Let's talk.</h2>
-      <p>I'm looking for full-stack, frontend, or mobile roles. The fastest way to reach me is email.</p>
-      <a class="button" href="mailto:k.yang.m909@gmail.com">k.yang.m909@gmail.com</a>
+      <header class="section-head">
+        <span class="idx">03</span>
+        <span class="label">Contact</span>
+      </header>
+      <h2 id="contact-h">Let's build something <em>that holds up.</em></h2>
+      <p>I'm looking for full-stack, frontend, or mobile roles, based in Honolulu and open to remote. The fastest way to reach me is email, and my resume is available on request.</p>
+      <a class="btn btn-solid btn-lg" href="mailto:k.yang.m909@gmail.com">k.yang.m909@gmail.com <span aria-hidden="true">→</span></a>
     </section>
   </main>
 
   <footer class="wrap foot">
     <p>© <span id="y">2026</span> Kevin Yang</p>
+    <p>Plain HTML, CSS, and a little JavaScript. No framework, no build step.</p>
     <p><a href="https://github.com/kevbot00">github.com/kevbot00</a></p>
   </footer>
 
-  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('y').textContent = new Date().getFullYear();
+    (function () {
+      var root = document.documentElement;
+      var btn = document.querySelector('.theme');
+      var mq = window.matchMedia('(prefers-color-scheme: dark)');
+      function current() { return root.dataset.theme || (mq.matches ? 'dark' : 'light'); }
+      function sync() { btn.setAttribute('aria-pressed', String(current() === 'dark')); }
+      sync();
+      mq.addEventListener('change', sync);
+      btn.addEventListener('click', function () {
+        var next = current() === 'dark' ? 'light' : 'dark';
+        function apply() {
+          root.dataset.theme = next;
+          try { localStorage.setItem('theme', next); } catch (e) {}
+          sync();
+        }
+        var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (!document.startViewTransition || reduce) return apply();
+        var r = btn.getBoundingClientRect();
+        root.style.setProperty('--vt-x', (r.left + r.width / 2) + 'px');
+        root.style.setProperty('--vt-y', (r.top + r.height / 2) + 'px');
+        document.startViewTransition(apply);
+      });
+    })();
+  </script>
 </body>
 </html>
