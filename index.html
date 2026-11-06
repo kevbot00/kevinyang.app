@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kevin Yang · Software Engineer</title>
+  <meta name="description" content="Kevin Yang is a full-stack software engineer working in TypeScript, React, React Native, Node.js, and GraphQL.">
+  <link rel="canonical" href="https://kevinyang.app/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Kevin Yang · Software Engineer">
+  <meta property="og:description" content="Full-stack software engineer working in TypeScript, React, React Native, Node.js, and GraphQL.">
+  <meta property="og:url" content="https://kevinyang.app/">
+  <meta name="theme-color" content="#f6f5f1" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#121212" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="top">
+    <div class="wrap top-inner">
+      <a class="mark" href="/" aria-label="Kevin Yang, home">KY</a>
+      <nav aria-label="Sections">
+        <a href="#work">Work</a>
+        <a href="#experience">Experience</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero wrap">
+      <p class="status"><span class="dot" aria-hidden="true"></span>Open to new roles</p>
+      <h1>Kevin Yang</h1>
+      <p class="lede">
+        Full-stack software engineer with 6+ years in TypeScript, React, React Native, Node.js, and GraphQL.
+        I spent five years at OTTO Sport AI owning the league scheduling engine, and I'm now building iOS apps in React Native.
+      </p>
+      <ul class="links" aria-label="Profiles">
+        <li><a href="mailto:k.yang.m909@gmail.com">Email</a></li>
+        <li><a href="https://github.com/kevbot00" rel="me">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/kevinyang123" rel="me">LinkedIn</a></li>
+      </ul>
+    </section>
+
+    <section id="work" class="wrap section" aria-labelledby="work-h">
+      <h2 id="work-h" class="eyebrow">Selected work</h2>
+
+      <article class="feature">
+        <div class="feature-head">
+          <p class="kicker">OTTO Sport AI · 2021 to 2026</p>
+          <h3>League scheduling engine</h3>
+          <p>
+            Technical owner of the engine that builds season schedules for youth sports leagues, running on a platform of 50+ independently deployed microservices.
+            I led its architecture and coordinated 2 to 3 engineers on matchup generation.
+          </p>
+        </div>
+
+        <dl class="stats">
+          <div><dt>Manual scheduling time</dt><dd>Up to 75% less</dd></div>
+          <div><dt>Generation, 1,000+ games</dt><dd>30s to about 5s</dd></div>
+          <div><dt>Test coverage</dt><dd>Under 20% to about 80%</dd></div>
+        </dl>
+
+        <ul class="notes">
+          <li>Built the conflict engine that fits games into open slots using per-grouping rules for games per team, dates, time windows, locations, game length, and coach conflicts.</li>
+          <li>Rebuilt conflict checks on 5 minute slots, which is where the speedup came from.</li>
+          <li>Designed matchup generation around the Strategy pattern so new league formats needed no scheduler changes.</li>
+          <li>Rebuilt legacy V1 scheduling features in V3, helping move the last 3 large clients off V1.</li>
+        </ul>
+      </article>
+
+      <div class="grid">
+        <article class="card">
+          <p class="kicker">iOS app · 2026</p>
+          <h3>Recipe Book</h3>
+          <p>Turns cooking videos into recipes with Gemini, then keeps them in a library with meal plans and shopping lists. Includes Sign in with Apple and subscriptions. In final QA ahead of App Store release.</p>
+          <p class="tags">React Native · Expo · NestJS · MongoDB · Gemini API</p>
+        </article>
+
+        <article class="card">
+          <p class="kicker">Full-stack · 2026</p>
+          <h3><a href="https://github.com/kevbot00/kanban">Kanban board</a></h3>
+          <p>A Trello style board with drag and drop within and across columns, built as a TypeScript monorepo with a NestJS API and Playwright end-to-end tests.</p>
+          <p class="tags">React 19 · Vite · Tailwind · dnd-kit · TanStack Query · NestJS · Prisma · PostgreSQL</p>
+        </article>
+
+        <article class="card">
+          <p class="kicker">Test automation · 2026</p>
+          <h3><a href="https://github.com/kevbot00/toolshop-qa">Toolshop QA</a></h3>
+          <p>85 UI, API, and accessibility tests for an open source e-commerce app. Every push starts a clean copy of the app in Docker, seeds it, and runs the suites in GitHub Actions.</p>
+          <p class="tags">Playwright · TypeScript · Pytest · Zod · axe-core · Docker</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="experience" class="wrap section" aria-labelledby="exp-h">
+      <h2 id="exp-h" class="eyebrow">Experience</h2>
+
+      <ol class="timeline">
+        <li>
+          <div class="when">2021 to 2026</div>
+          <div>
+            <h3>Software Engineer, OTTO Sport AI</h3>
+            <p class="sub">Formerly Demosphere</p>
+            <ul>
+              <li>Owned the league scheduling engine and embeddable schedule and standings widgets, keeping API contracts and migrations backward compatible across services.</li>
+              <li>Built live game tracking in React Native with PubNub and MongoDB, syncing scores and timers across devices.</li>
+              <li>Extended the Ruby CMS so organizations could embed widgets on their own sites.</li>
+              <li>Led production deployments and rollbacks, and handled on-call triage of 5 to 10 issues a week.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">2020 to 2021</div>
+          <div>
+            <h3>Software Engineer, DCS Business</h3>
+            <ul>
+              <li>Built full-stack IoT monitoring with live and historical sensor views across every location a business had, using MQTT, Socket.io, and MySQL.</li>
+              <li>Added email alerts through AWS SNS and Nodemailer with configurable thresholds, event counts, and time windows.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">2019 to 2020</div>
+          <div>
+            <h3>QA Engineer, Hive Media Group</h3>
+            <ul>
+              <li>Smoke tested every UI change across about 25 publishing sites and automated parts of it with Selenium.</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <div class="when">2017 to 2019</div>
+          <div>
+            <h3>Accounts Receivable, FirstService Residential</h3>
+            <ul>
+              <li>Handled delinquency actions on homeowner accounts across 40+ HOA communities before moving into software.</li>
+            </ul>
+          </div>
+        </li>
+      </ol>
+
+      <div class="skills">
+        <div>
+          <h3 class="eyebrow">Stack</h3>
+          <p>TypeScript, JavaScript, SQL, Ruby, React, React Native, Next.js, Node.js, NestJS, GraphQL, REST</p>
+        </div>
+        <div>
+          <h3 class="eyebrow">Data and cloud</h3>
+          <p>MongoDB, PostgreSQL, MySQL, Redis, Prisma, AWS (S3, SNS, CloudWatch), Grafana, Firebase</p>
+        </div>
+        <div>
+          <h3 class="eyebrow">Tooling</h3>
+          <p>Git, GitHub Actions, Docker, Jest, Mocha, Playwright, Selenium, Claude Code, GitHub Copilot, ChatGPT</p>
+        </div>
+        <div>
+          <h3 class="eyebrow">Education</h3>
+          <p>LearningFuze, Software Engineering Immersive, 2019<br>UC Riverside, BS Business Administration, 2016</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="wrap section contact" aria-labelledby="contact-h">
+      <h2 id="contact-h">Let's talk.</h2>
+      <p>I'm looking for full-stack, frontend, or mobile roles. The fastest way to reach me is email.</p>
+      <a class="button" href="mailto:k.yang.m909@gmail.com">k.yang.m909@gmail.com</a>
+    </section>
+  </main>
+
+  <footer class="wrap foot">
+    <p>© <span id="y">2026</span> Kevin Yang</p>
+    <p><a href="https://github.com/kevbot00">github.com/kevbot00</a></p>
+  </footer>
+
+  <script>document.getElementById('y').textContent = new Date().getFullYear();</script>
+</body>
+</html>
