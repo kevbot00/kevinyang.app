@@ -47,8 +47,8 @@
         <h1 id="hero-h">Kevin Yang</h1>
         <p class="role">Full-stack software engineer who builds <em>systems that hold up</em> under real schedules.</p>
         <p class="lede">
-          6+ years in TypeScript, React, React Native, Node.js, and GraphQL.
-          I spent five years at OTTO Sport AI owning the league scheduling engine, and since March 2026 I've been building two iOS apps in React Native.
+          6+ years in TypeScript, React, and Node.js, plus React Native and GraphQL at OTTO Sport AI, where I spent five years owning the league scheduling engine.
+          Since March 2026 I've been building two iOS apps in React Native.
         </p>
         <ul class="links" aria-label="Profiles">
           <li><a class="btn btn-solid" href="mailto:k.yang.m909@gmail.com">Email me</a></li>
@@ -88,7 +88,7 @@
       </figure>
     </section>
 
-    <section class="wrap metrics" aria-label="Results at OTTO Sport AI">
+    <section class="wrap metrics" aria-label="OTTO Sport AI in numbers">
       <dl>
         <div class="metric">
           <dt>Faster schedule generation</dt>
@@ -96,9 +96,9 @@
           <dd class="ctx">30+ seconds down to about 5 on 1,000+ game stress tests</dd>
         </div>
         <div class="metric">
-          <dt>Less manual scheduling</dt>
-          <dd class="fig"><span aria-hidden="true"><span class="n" style="--from:0;--to:75"></span>%</span><span class="sr">Up to 75 percent</span></dd>
-          <dd class="ctx">Up to 75% less time creating league schedules by hand</dd>
+          <dt>Microservices on the platform</dt>
+          <dd class="fig"><span aria-hidden="true"><span class="n" style="--from:0;--to:50"></span>+</span><span class="sr">More than 50</span></dd>
+          <dd class="ctx">Owned the scheduling engine and widgets, running deployments and rollbacks while keeping API contracts backward compatible</dd>
         </div>
         <div class="metric">
           <dt>Microservices brought under test</dt>
@@ -119,15 +119,17 @@
           <p class="kicker">OTTO Sport AI · 2021 – 2026 · Technical owner</p>
           <h3>League scheduling engine</h3>
           <p>
-            The engine that builds season schedules for youth sports leagues, running on a platform of 50+ independently deployed microservices.
-            I led its architecture and coordinated 2 to 3 engineers on matchup generation, cutting manual schedule creation time by up to 75%.
+            The engine that assigned every game in a league to a date, time, and field with conflict checks, on a youth sports platform of 50+ independently deployed microservices.
           </p>
         </div>
         <ol class="steps">
-          <li><span class="step-k">Constraints</span><p>Built the conflict engine that fits games into open slots using per-grouping rules for games per team, dates, time windows, locations, game length, and coach conflicts.</p></li>
-          <li><span class="step-k">Speed</span><p>Rebuilt conflict checks on 5 minute slots, taking generation from 30+ seconds to about 5 on 1,000+ game stress tests.</p></li>
-          <li><span class="step-k">Extensibility</span><p>Designed matchup generation around the Strategy pattern so new league formats needed no scheduler changes.</p></li>
-          <li><span class="step-k">Migration</span><p>Rebuilt legacy V1 scheduling features in V3, helping move the last 3 large clients off V1.</p></li>
+          <li><span class="step-k">Problem</span><p>League admins told us building a season schedule by hand took days. A single grouping could hold thousands of games, and each one needed a date, time, and field that fit the league's settings, such as games per team, time windows, game length, field lights, and coach conflicts, without double-booking anyone.</p></li>
+          <li><span class="step-k">My role</span><p>I worked on the original engine, then designed and owned the improved version. I ran the technical discussions, split the approved design into tickets for 2 to 3 engineers, reviewed their pull requests, and walked them through the business decisions and architecture.</p></li>
+          <li><span class="step-k">5 minute slots</span><p>The old engine placed games minute by minute, back to back, so a 1:00 to 2:00 game was followed by 2:01 to 3:01. I proposed moving to 5 minute slots, 288 in a day, and talked it through with product owners. A 60 minute game now just needs the first 12 open slots in a row inside the time window the admin picks. That made placement much faster, gave cleaner start times, and made a switch to 30 minute increments a small change. The platform then moved all game creation to 5 minute increments.</p></li>
+          <li><span class="step-k">Background jobs</span><p>Ran each grouping as its own Bull job on Redis instead of holding up the frontend. Admins kept using the platform while a schedule generated, jobs could be retried, and the app could check each job's status. It also made room for a product request to let admins preview the matchups before creating the schedule.</p></li>
+          <li><span class="step-k">Matchups</span><p>Redesigned the existing round robin matchup generator with the Strategy pattern so linked and unlinked groupings shared one flow.</p></li>
+          <li><span class="step-k">Result</span><p>Admins went from days of building schedules by hand to minutes. Generation dropped from 30+ seconds to about 5 on 1,000+ game stress tests, and rebuilding the legacy V1 features in V3 helped move the last 3 large clients off V1.</p></li>
+          <li><span class="step-k">Looking back</span><p>Game creation reused an existing function that also created events, referee templates, and game history entries. We were on a MongoDB version without transactions, so a failed run was cleaned up by its instruction ID, and that cleanup could fail too. If I did it again, I would split game creation out first. It would have been faster to build and change, faster at generating schedules, and a lot less bulky.</p></li>
         </ol>
       </article>
 
@@ -136,14 +138,17 @@
           <p class="kicker">OTTO Sport AI · Technical owner · See Fig. 1</p>
           <h3>Embeddable schedule and standings widgets</h3>
           <p>
-            The schedules and standings that organizations embed on their own websites.
-            I owned the widgets alongside the scheduling engine.
+            Schedule and standings widgets that organizations placed on their own websites.
           </p>
         </div>
         <ol class="steps">
-          <li><span class="step-k">Embeds</span><p>Created embeddable HTML and CSS widgets for schedules and standings.</p></li>
-          <li><span class="step-k">CMS</span><p>Extended the existing Ruby CMS so organizations could add the widgets to their own sites.</p></li>
-          <li><span class="step-k">Contracts</span><p>Kept API contracts and migrations backward compatible across independently deployed services.</p></li>
+          <li><span class="step-k">Problem</span><p>To share a schedule, organizations had to send families to the portal, print pages, or run their site on the Demosphere CMS.</p></li>
+          <li><span class="step-k">My role</span><p>I owned the widgets alongside the scheduling engine.</p></li>
+          <li><span class="step-k">Embeds</span><p>Organizations set up a widget configuration and got a public link to embed on their site as an iframe. Each visit hit a public NestJS endpoint that read that configuration and served the schedule or standings as HTML and CSS with Turbo.</p></li>
+          <li><span class="step-k">Tables</span><p>Added sorting, filtering, and search inside the schedule and standings tables, and linked them together so clicking a team or standings opened the right page.</p></li>
+          <li><span class="step-k">CMS</span><p>Extended the Demosphere CMS, which was built in Ruby, so organizations with sites on it could add the new widgets too.</p></li>
+          <li><span class="step-k">Contracts</span><p>Kept API contracts and migrations backward compatible across independently deployed services, since the widgets lived on organizations' own websites.</p></li>
+          <li><span class="step-k">Result</span><p>Every organization using the scheduling product had the widgets, so schedules lived on its own site instead of the portal or printed pages.</p></li>
         </ol>
       </article>
 
@@ -151,14 +156,16 @@
       <article class="app">
         <div class="app-copy">
           <p class="kicker">iOS · 2026</p>
-          <h4>Imposter <span class="pill">In App Store review</span></h4>
-          <p>A pass-the-phone party game for 3 to 12 players. Everyone gets the same secret word except the imposters, who have to bluff. Built with animated reveals, a lifetime in-app purchase, and ads. Before submitting, I wrote 100+ Jest tests and ran two release QA audits covering purchases, restores, and edge cases.</p>
-          <p class="row-tags">React Native · TypeScript · Reanimated · Jest · AsyncStorage</p>        </div>
-        <ul class="shots" aria-label="Imposter screenshots">
-          <li><img src="/img/imposter-1.webp" width="480" height="1044" loading="lazy" decoding="async" alt="Title screen asking who's the imposter, billed as the party bluffing game."></li>
-          <li><img src="/img/imposter-2.webp" width="480" height="1044" loading="lazy" decoding="async" alt="Each player swipes up to peek at the secret word, then passes the phone."></li>
-          <li><img src="/img/imposter-3.webp" width="480" height="1044" loading="lazy" decoding="async" alt="The imposter's reveal screen, telling them to blend in and not get caught."></li>
-          <li><img src="/img/imposter-4.webp" width="480" height="1044" loading="lazy" decoding="async" alt="Voting screen where players pick who they think the imposter is."></li>
+          <h4>Social Party Game <span class="pill">In App Store review</span></h4>
+          <p>A pass-the-phone party game for 3 to 12 players. Everyone sees the secret word except one player, who has to bluff.</p>
+          <p>App Review rejected the first version as too similar to other word games. Instead of tweaking it, I redesigned the game around two original modes, Pass the Note and Contraband, and rebranded it. The hardest part was the design, researching what was already out there and making the game feel different.</p>
+          <p>It ships with a lifetime in-app purchase and ads, backed by nearly 300 Jest tests.</p>
+          <p class="row-tags">React Native · TypeScript · React Navigation · Reanimated · Jest · AsyncStorage</p>
+        </div>
+        <ul class="shots shots-3" aria-label="Party game screenshots">
+          <li><img src="/img/party-game-1.webp" width="480" height="1044" loading="lazy" decoding="async" alt="Pass the Note mode, where each player leaves a one-word note for the next player after peeking at the word."></li>
+          <li><img src="/img/party-game-2.webp" width="480" height="1044" loading="lazy" decoding="async" alt="The faker&#39;s card, with no secret word, just a contraband word to sneak into the conversation."></li>
+          <li><img src="/img/party-game-3.webp" width="480" height="1044" loading="lazy" decoding="async" alt="The reveal, where the faker was caught but their contraband word still got out."></li>
         </ul>
       </article>
 
@@ -195,12 +202,9 @@
             <h3>Software Engineer <span class="at">@ OTTO Sport AI</span></h3>
             <p class="row-sub">Formerly Demosphere · Scheduling engine and widgets covered in <a href="#work">Selected work</a></p>
             <ul>
-              <li>Built new Next.js UI for the OTTO platform as it branched off the Demosphere web app.</li>
-              <li>Built live game tracking in React Native with PubNub and MongoDB, syncing scores and timers across devices.</li>
-              <li>Tested React Native builds on real iOS and Android devices through SauceLabs before each release.</li>
-              <li>Built the shared test factories, database helpers, and auth test utilities that let the team bring automated tests to 20+ Node and GraphQL microservices in parallel, with CI failing any service under 80% coverage. It came out of a team retro on QA and engineering handoffs, and it caught bugs in CI before they reached QA.</li>
-              <li>Took part in architecture discussions on service boundaries and reducing coupling between services.</li>
-              <li>Led production deployments and rollbacks, and triaged 5 to 10 issues a week on a 6-person on-call rotation using CloudWatch logs, Grafana metrics, and Firebase crash trends, then ran root cause analysis across service boundaries.</li>
+              <li>Owned the scheduling engine and widgets above, and led the architecture of post-game and officials reports on the in-house form builder.</li>
+              <li>Built live game tracking in React Native, new Next.js UI for the OTTO platform, and the shared test utilities that brought tests to 20+ microservices.</li>
+              <li>Triaged on-call incidents and support tickets on a 6-person rotation and shipped the fixes.</li>
             </ul>
           </div>
         </li>
@@ -209,8 +213,7 @@
           <div class="row-main">
             <h3>Full Stack Developer <span class="at">@ DCS Business</span></h3>
             <ul>
-              <li>Built full-stack IoT monitoring on a 3 to 4 person team, giving businesses live and historical sensor views across all their locations through MQTT, Socket.io, and MySQL.</li>
-              <li>Added AWS SNS and Nodemailer email alerts with configurable thresholds, event counts, and time windows, so businesses were notified automatically instead of watching dashboards.</li>
+              <li>Built full-stack IoT monitoring on a 3 to 4 person team, with live and historical sensor views and automatic email alerts.</li>
             </ul>
           </div>
         </li>
@@ -219,8 +222,7 @@
           <div class="row-main">
             <h3>QA Engineer <span class="at">@ Hive Media Group</span></h3>
             <ul>
-              <li>Smoke tested every UI change across about 25 publishing sites, catching regressions missed on the site being changed.</li>
-              <li>Reproduced bugs, verified fixes, and tested A/B experiments and regressions, with Selenium for some automation.</li>
+              <li>Smoke tested UI changes across about 25 WordPress sites and wrote Selenium checks for page loads and ad placements.</li>
             </ul>
           </div>
         </li>
@@ -229,7 +231,7 @@
           <div class="row-main">
             <h3>Accounts Receivable Representative <span class="at">@ FirstService Residential</span></h3>
             <ul>
-              <li>Handled delinquency actions on homeowner accounts across 40+ HOA communities before moving into software.</li>
+              <li>Processed pre-lien and lien delinquency actions on homeowner accounts across 40+ HOA communities before moving into software.</li>
             </ul>
           </div>
         </li>
