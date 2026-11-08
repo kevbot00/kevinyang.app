@@ -374,6 +374,7 @@ h1 {
 .row:has(.stretch):hover h4 a { color: var(--accent-text); }
 .row:has(.stretch:focus-visible) { outline: 2px solid var(--accent-text); outline-offset: 6px; }
 .stretch:focus-visible { outline: none; }
+.row-more { position: relative; z-index: 1; margin-top: 10px; font-family: var(--mono); font-size: 12.5px; }
 
 .pill {
   display: inline-block; vertical-align: 3px; margin-left: 8px;
